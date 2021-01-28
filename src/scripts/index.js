@@ -14,10 +14,15 @@ class CustomEngine extends Engine {}
 
 const engine = new CustomEngine()
 
-const text = new AnimatedText3D('ruucm is watching TV.', { color: '#005dfa', size: 0.8 })
+const text = new AnimatedText3D('ruucm is watching', { color: '#005dfa', size: 0.8 })
 text.position.x -= text.basePosition * 0.5
-// text.position.y -= 0.5;
+text.position.y -= 0.5;
 engine.add(text)
+
+const text2 = new AnimatedText3D('TV.', { color: '#0eb783', size: 0.8 })
+text2.position.x -= text.basePosition * 0.5
+text2.position.y -= 1.5;
+engine.add(text2)
 
 engine.start()
 const tlShow = new TimelineLite({ delay: 0.2, onStart: () => {
@@ -27,6 +32,7 @@ const tlShow = new TimelineLite({ delay: 0.2, onStart: () => {
 // tlShow.to('.background', 2, { y: -300 }, 0);
 tlShow.fromTo(engine.lookAt, 2, { y: -8 }, { y: 0 }, 0);
 tlShow.add(text.show, '-=1');
+tlShow.add(text2.show, '-=3');
 
 // Hide
 // app.onHide((onComplete) => {
