@@ -1,3 +1,5 @@
+## Animated Text using mesh-lines
+
 ### Features:
 
 - ES6 Support via [babel](https://babeljs.io/) (v7)
